@@ -1,0 +1,15 @@
+.nombre{
+    display: inline-block;
+    border: 1px solid black;
+    margin: 8px 8px 8px;
+    padding: 3px 3px 3px;
+    font-size: 20px;
+    }
+
+.nombres {
+    width: 600px;
+}
+
+input {
+    margin-bottom: 20px;
+}
