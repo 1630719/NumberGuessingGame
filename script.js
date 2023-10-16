@@ -1,4 +1,7 @@
-let aleatoire = Math.ceil(Math.random()*100); //le nombre à deviner
+let  aleatoire = Math.ceil(Math.random()*100); //le nombre à deviner
+let compteur = 0
+let $essai = $("#essai")
+let $ListeItems = $("#ListeItems")
 
 $("h1").click(function ()
 {
@@ -8,15 +11,26 @@ $("h1").click(function ()
 
 $("#BoutonSoumettre").click(function (){
     // Ajouter l'essai à la liste des nomnres
-    $("#ListeItems").append($("#essai").val() + " ")
+    console.log(aleatoire)
+    console.log(compteur)
+    console.log($Nombre)
+    compteur++
+    if (compteur < 10 && $essai.val() !== aleatoire.toString())
+    {
+        $ListeItems.append($essai.val() + " ")
+    }
 
-    //Compteur d'essais. Commence à 0, incérmente d'1 à chaque tentative
+    else if (compteur === 10 && $essai.val() !== aleatoire.toString())
 
-    //Si atteint 10, on affiche message de fin
+    {
+        $ListeItems.text("Meilleure chance la prochaine fois!")
+    }
 
-    //Récupérer la valeur des éléments de la classe Nombre
+    else if ($essai.val() === aleatoire.toString())
+    {
+        $("#ListeItems").text("YOUPI")
+    }
 
-    //Récpérer la valeur des essais (voir code plus haut)
 
     //Comparer valeur entrée aux nombres
 
@@ -24,6 +38,5 @@ $("#BoutonSoumettre").click(function (){
 
     //Si plus petit, retirer elems + petits + message
 
-    //Si bon, afficher youpi
 })
 
