@@ -13,3 +13,22 @@
 input {
     margin-bottom: 20px;
 }
+
+.MauvaisGuess{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: black;
+    background-color: red;
+    width: 300px
+}
+
+.BonGuess{
+    color: white;
+    background-color: green;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.CacherBouton{
+    visibility: hidden;
+}
