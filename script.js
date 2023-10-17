@@ -2,7 +2,7 @@ let  aleatoire = Math.ceil(Math.random()*100); //le nombre à deviner
 let compteur = 0
 let $essai = $("#essai")
 let $ListeItems = $("#ListeItems")
-
+let $Nombre = $("#" +$essai.val())
 $("h1").click(function ()
 {
     $(this).text("Reussi")
@@ -10,14 +10,25 @@ $("h1").click(function ()
 
 
 $("#BoutonSoumettre").click(function (){
-    // Ajouter l'essai à la liste des nomnres
     console.log(aleatoire)
     console.log(compteur)
-    console.log($Nombre)
+
+    //Incrémenter compteur de 1
     compteur++
+
     if (compteur < 10 && $essai.val() !== aleatoire.toString())
     {
+        //Ajouter l'essaie à la liste des nombres
         $ListeItems.append($essai.val() + " ")
+
+        // Si la tentative est inférieure au chiffre aléatoire
+        if ($essai.val() < aleatoire.toString())
+        {
+            //Retirer les nombres plus petits
+            $Nombre.remove()
+        }
+
+
     }
 
     else if (compteur === 10 && $essai.val() !== aleatoire.toString())
@@ -30,6 +41,8 @@ $("#BoutonSoumettre").click(function (){
     {
         $("#ListeItems").text("YOUPI")
     }
+
+
 
 
     //Comparer valeur entrée aux nombres
